@@ -17,5 +17,5 @@
 <br /><br />
 
 ### Ссылки на ассеты
-Средневековые рамки
-https://kenney.nl/assets/fantasy-ui-borders
+Рамки https://kenney.nl/assets/fantasy-ui-borders
+Шрифт https://fonts-online.ru/fonts/brahms-gotisch-cyrillic
