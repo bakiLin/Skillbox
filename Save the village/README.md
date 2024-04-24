@@ -14,3 +14,7 @@
 <img src="https://github.com/bakiLin/Skillbox/assets/120983857/dc2f56d3-9634-4e5a-a1ef-49e49e07ffab" width=75% height=75%/>
 <br />
 Рис. 3 - Окно важной информации
+
+### Ссылки на ассеты
+Средневековые рамки
+https://kenney.nl/assets/fantasy-ui-borders
