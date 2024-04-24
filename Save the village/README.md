@@ -10,7 +10,7 @@
 <img src="https://github.com/bakiLin/Skillbox/assets/120983857/02da7c3f-7b82-4d63-9723-dff24d7fa7ee" width=75% height=75%/>
 <br />
 Рис. 2 - Окно найма
-
+<br /><br />
 <img src="https://github.com/bakiLin/Skillbox/assets/120983857/dc2f56d3-9634-4e5a-a1ef-49e49e07ffab" width=75% height=75%/>
 <br />
 Рис. 3 - Окно важной информации
