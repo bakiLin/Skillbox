@@ -6,7 +6,7 @@
 
 ## Ссылки на ассеты
 [Спрайты](https://itch.io/s/57562/tech-dungeon-roguelite-asset-pack) <br/> 
-[UI панели](https://fonts-online.ru/fonts/brahms-gotisch-cyrillic) <br/>
+[UI панели](https://assetstore.unity.com/packages/2d/gui/icons/2d-simple-ui-pack-218050) <br/>
 [Шрифт](https://fonts-online.ru/fonts/font-over)
 
 ## Аудио
