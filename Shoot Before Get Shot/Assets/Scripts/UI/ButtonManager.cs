@@ -1,41 +1,33 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private AudioSource sfxSource;
-    [SerializeField] private float buttonSfxOffset;
-    [SerializeField] private Animator shadeImage;
 
-    private void Start() => sfxSource.time = buttonSfxOffset;
+    public delegate void PlayPressedDelegate();
+    public event PlayPressedDelegate playPressedEvent;
 
-    public void StartGame() => StartCoroutine(LoadStartLevel());
+    private bool buttonPressed;
 
-    private IEnumerator LoadStartLevel()
+    public void StartGame()
     {
-        sfxSource.Play();
-        shadeImage.gameObject.SetActive(true);
-        shadeImage.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(1);
+        if (!buttonPressed) 
+        {
+            playPressedEvent?.Invoke();
+            buttonPressed = true;
+        }
     }
 
-    public void QuitGame()
+    public void QuitGame() => Application.Quit();
+
+    public void MusicVolume(float volume) => AudioVolume("music volume", volume);
+
+    public void SFXVolume(float volume) => AudioVolume("sfx volume", volume);
+
+    private void AudioVolume(string parameter, float volume)
     {
-        sfxSource.Play();
-        Application.Quit();
+        if (volume == -25) mixer.SetFloat(parameter, -80);
+        else mixer.SetFloat(parameter, volume);
     }
-
-    public void ButtonClick() => sfxSource.Play();
-
-    public void SetMusicVolume(float volume) => mixer.SetFloat("music volume", volume);
-
-    public void SetSFXVolume(float volume) => mixer.SetFloat("sfx volume", volume);
-
-    public void StopTime() => Time.timeScale = 0f;
-
-    public void TimeContinue() => Time.timeScale = 1f;
 }
