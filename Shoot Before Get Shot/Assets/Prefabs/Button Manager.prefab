@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3398569188953034398
+--- !u!1 &3393759229354995907
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1016221123754185810}
-  - component: {fileID: 2948922445134692395}
+  - component: {fileID: 9062553306351432738}
+  - component: {fileID: 1157519175124209959}
   m_Layer: 0
-  m_Name: Audio Manager
+  m_Name: Button Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1016221123754185810
+--- !u!4 &9062553306351432738
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398569188953034398}
+  m_GameObject: {fileID: 3393759229354995907}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,19 +32,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2948922445134692395
+--- !u!114 &1157519175124209959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398569188953034398}
+  m_GameObject: {fileID: 3393759229354995907}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e10bd7727498e644c8f28f654091f19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 5b84e81e58473d243bc30d07d5906a42, type: 2}
-  sfxSource: {fileID: 0}
-  buttonSfxOffset: 0.05
-  shadeImage: {fileID: 0}

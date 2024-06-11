@@ -1,33 +1,42 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private Slider sliderMusic;
+    [SerializeField] private Slider sliderSFX;
 
-    public delegate void PlayPressedDelegate();
-    public event PlayPressedDelegate playPressedEvent;
+    public Action<int> startGameAction;
+    public Action<int> returnToMenuAction;
 
-    private bool buttonPressed;
-
-    public void StartGame()
+    private void Start()
     {
-        if (!buttonPressed) 
-        {
-            playPressedEvent?.Invoke();
-            buttonPressed = true;
-        }
+        SetSliderValue(sliderMusic, "music volume");
+        SetSliderValue(sliderSFX, "sfx volume");
     }
+
+    private void SetSliderValue(Slider slider, String parameter)
+    {
+        mixer.GetFloat(parameter, out float volume);
+        slider.value = volume;
+    }
+
+    public void StartGame() => startGameAction?.Invoke(1);
 
     public void QuitGame() => Application.Quit();
 
-    public void MusicVolume(float volume) => AudioVolume("music volume", volume);
+    public void MusicVolume(float volume) => ChangeVolume("music volume", volume);
 
-    public void SFXVolume(float volume) => AudioVolume("sfx volume", volume);
+    public void SFXVolume(float volume) => ChangeVolume("sfx volume", volume);
 
-    private void AudioVolume(string parameter, float volume)
+    private void ChangeVolume(string parameter, float volume)
     {
         if (volume == -25) mixer.SetFloat(parameter, -80);
         else mixer.SetFloat(parameter, volume);
     }
+
+    public void ReturnToMenu() => returnToMenuAction?.Invoke(0);
 }
