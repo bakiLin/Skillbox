@@ -6,11 +6,9 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private Slider sliderMusic;
-    [SerializeField] private Slider sliderSFX;
+    [SerializeField] private Slider sliderMusic, sliderSFX;
 
-    public Action<int> startGameAction;
-    public Action<int> returnToMenuAction;
+    public Action<int> onGameStart, onReturnToMenu;
 
     private void Start()
     {
@@ -24,7 +22,7 @@ public class ButtonManager : MonoBehaviour
         slider.value = volume;
     }
 
-    public void StartGame() => startGameAction?.Invoke(1);
+    public void StartGame() => onGameStart?.Invoke(1);
 
     public void QuitGame() => Application.Quit();
 
@@ -38,5 +36,5 @@ public class ButtonManager : MonoBehaviour
         else mixer.SetFloat(parameter, volume);
     }
 
-    public void ReturnToMenu() => returnToMenuAction?.Invoke(0);
+    public void ReturnToMenu() => onReturnToMenu?.Invoke(0);
 }

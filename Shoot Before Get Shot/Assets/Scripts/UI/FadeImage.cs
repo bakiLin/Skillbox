@@ -11,9 +11,9 @@ public class FadeImage : MonoBehaviour
 
     private void Awake() => animator = GetComponent<Animator>();
 
-    private void StartFadeIn(int index) => StartCoroutine(FadeIn(index));
+    private void FadeIn(int index) => StartCoroutine(FadeInCoroutine(index));
 
-    private IEnumerator FadeIn(int index)
+    private IEnumerator FadeInCoroutine(int index)
     {
         animator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(fadeInDuration);
@@ -22,13 +22,13 @@ public class FadeImage : MonoBehaviour
 
     private void OnEnable()
     {
-        buttonManager.startGameAction += StartFadeIn;
-        buttonManager.returnToMenuAction += StartFadeIn;
+        buttonManager.onGameStart += FadeIn;
+        buttonManager.onReturnToMenu += FadeIn;
     }
 
     private void OnDisable()
     {
-        buttonManager.startGameAction -= StartFadeIn;
-        buttonManager.returnToMenuAction -= StartFadeIn;
+        buttonManager.onGameStart -= FadeIn;
+        buttonManager.onReturnToMenu -= FadeIn;
     }
 }
