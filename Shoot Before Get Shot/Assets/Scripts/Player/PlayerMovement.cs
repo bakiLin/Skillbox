@@ -18,29 +18,23 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
+        movement.Normalize();
 
-        PlayerRotate();
-        playerAnimation.RunAnimation(movement);
-
-        if (movement != Vector3.zero)
-            playerAnimation.RunAnimation(movement);
-            
+        Rotate();
+        playerAnimation.Run(movement);
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(transform.position + speed * Time.fixedDeltaTime * movement);
-        rb.velocity = Vector3.zero;
     }
 
-    private void PlayerRotate()
+    private void Rotate()
     {
-        if (movement.x != 0)
-        {
-            Vector3 rotation = transform.rotation.eulerAngles;
-            rotation.y = movement.x < 0 ? 180f : 0f;
-            transform.rotation = Quaternion.Euler(rotation);
-        }
+        if (movement.x > 0)
+            transform.rotation = Quaternion.Euler(Vector2.zero);
+
+        if (movement.x < 0)
+            transform.rotation = Quaternion.Euler(new Vector2(0f, 180f));
     }
 }

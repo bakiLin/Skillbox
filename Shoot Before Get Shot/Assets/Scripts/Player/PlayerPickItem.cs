@@ -18,8 +18,8 @@ public class PlayerPickItem : MonoBehaviour
     {
         if (collision.CompareTag("Ammo"))
         {
-            ammoScript.totalAmmo += ammo;
-            ammoScript.ChangeAmmoUI();
+            //ammoScript.totalAmmo += ammo;
+            //ammoScript.ChangeAmmoUI();
             Destroy(collision.gameObject);
         }
 

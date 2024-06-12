@@ -47,30 +47,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Floor
-    uniqueID: 3381122271
-    locked: 0
-  - name: Back Wall
-    uniqueID: 3350700457
-    locked: 0
-  - name: Item
-    uniqueID: 2650726665
-    locked: 0
-  - name: Bullet
-    uniqueID: 820271099
-    locked: 0
-  - name: Player
-    uniqueID: 2322982535
-    locked: 0
-  - name: Enemy
-    uniqueID: 3809704529
-    locked: 0
-  - name: UI
-    uniqueID: 2321755071
-    locked: 0
-  - name: Front Wall
-    uniqueID: 3292544629
+  - name: Fill Bar
+    uniqueID: 2569384527
     locked: 0
   - name: Canvas
-    uniqueID: 3056252949
+    uniqueID: 353079561
     locked: 0

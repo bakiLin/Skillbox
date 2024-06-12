@@ -3,27 +3,22 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] private GameObject[] shootBarComponents;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private float reloadTime;
+    [SerializeField] private float shootDelay;
+    [SerializeField] private ShootProgress shootProgress;
 
-    public float shootTime;
-
-    private PlayerAmmo playerAmmo;
     private PlayerAnimation playerAnimation;
-    private float cooldown;
-
-    private const float progressScaleX = 3.3f;
+    private PlayerAmmo playerAmmo;
 
     private void Awake()
     {
-        playerAmmo = GetComponent<PlayerAmmo>();
         playerAnimation = GetComponent<PlayerAnimation>();
+        playerAmmo = GetComponent<PlayerAmmo>();
     }
 
-    private void Start() => StartCoroutine(Shoot());
+    private void Start() => StartCoroutine(ShootCoroutine());
 
-    private IEnumerator Shoot()
+    private IEnumerator ShootCoroutine()
     {
         while (true)
         {
@@ -31,42 +26,24 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (playerAmmo.currentAmmo > 0)
                 {
-                    ShootBarState(true);
+                    shootProgress.ProgressFill(shootDelay);
+                    playerAnimation.Shoot();
 
-                    playerAmmo.Shoot();
-                    playerAnimation.ShootAnimation();
+                    Vector3 bulletSpawnPosition = transform.position + new Vector3(transform.right.x * 0.3f, -0.14f, 0f);
+                    Instantiate(bullet, bulletSpawnPosition, transform.rotation);
 
-                    Instantiate(bullet, transform.position + transform.right, transform.rotation);
-                    yield return new WaitForSeconds(shootTime);
-
-                    ShootBarState(false);
-                    cooldown = 0f;
+                    playerAmmo.UseAmmo();
+                    yield return new WaitForSeconds(shootDelay);
                 }
                 else
                 {
-                    playerAnimation.ReloadAnimation();
-                    yield return new WaitForSeconds(reloadTime);
-                    playerAmmo.Reload();
+                    playerAnimation.Reload();
+                    yield return new WaitForSeconds(shootDelay);
+                    playerAmmo.UseAmmo();
                 }
             }
+
             yield return null;
-        }
-    }
-
-    private void ShootBarState(bool state)
-    {
-        foreach (GameObject temp in shootBarComponents)
-            temp.SetActive(state);
-    }
-
-    private void Update()
-    {
-        if (shootBarComponents[0].activeSelf)
-        {
-            cooldown += Time.deltaTime;
-            Vector3 temp = shootBarComponents[0].transform.localScale;
-            temp.x = progressScaleX * cooldown / shootTime;
-            shootBarComponents[0].transform.localScale = temp;
         }
     }
 }

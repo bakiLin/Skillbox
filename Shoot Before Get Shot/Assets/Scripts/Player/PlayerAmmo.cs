@@ -4,33 +4,34 @@ using UnityEngine;
 public class PlayerAmmo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private int magazine, totalAmmo;
 
     [HideInInspector] public int currentAmmo;
 
-    public int totalAmmo, magazineSize;
-
     private void Start()
     {
-        currentAmmo = magazineSize;
-        ChangeAmmoUI();
+        currentAmmo = magazine;
+        ammoText.text = $"{currentAmmo}/{totalAmmo}";
     }
 
-    public void Shoot()
+    public void UseAmmo()
     {
-        currentAmmo -= 1;
-        ChangeAmmoUI();
+        if (currentAmmo > 0)
+            currentAmmo -= 1;
+        else
+        {
+            if (totalAmmo > magazine)
+            {
+                currentAmmo += magazine;
+                totalAmmo -= magazine;
+            }
+            else
+            {
+                currentAmmo += totalAmmo;
+                totalAmmo = 0;
+            }
+        }
+
+        ammoText.text = $"{currentAmmo}/{totalAmmo}";
     }
-
-    public void Reload()
-    {
-        if (totalAmmo > magazineSize) currentAmmo = magazineSize;
-        else currentAmmo = totalAmmo;
-
-        totalAmmo -= magazineSize;
-        if (totalAmmo < 0) totalAmmo = 0;
-
-        ChangeAmmoUI();
-    }
-
-    public void ChangeAmmoUI() => ammoText.text = $"{currentAmmo}/{totalAmmo}";
 }

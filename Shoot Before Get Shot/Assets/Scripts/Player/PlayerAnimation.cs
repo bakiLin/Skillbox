@@ -4,11 +4,11 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    public void RunAnimation(Vector3 movement) => animator.SetFloat("PlayerSpeed", movement.magnitude);
+    public void Run(Vector3 movement) => animator.SetFloat("speed", movement.magnitude);
 
-    public void ShootAnimation() => animator.SetTrigger("PlayerShoot");
+    public void Shoot() => animator.SetTrigger("shoot");
 
-    public void ReloadAnimation() => animator.SetTrigger("PlayerReload");
+    public void Reload() => animator.SetTrigger("reload");
 
     public void DeathAnimation() => animator.SetBool("PlayerDeath", true);
 }

@@ -15,10 +15,10 @@ public class GunBoost : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerShoot.shootTime = 0.35f;
-            ammo.magazineSize = 10;
-            ammo.currentAmmo = 10;
-            ammo.ChangeAmmoUI();
+            //playerShoot.shootTime = 0.35f;
+            //ammo.magazineSize = 10;
+            //ammo.currentAmmo = 10;
+            //ammo.ChangeAmmoUI();
 
             Destroy(gameObject);
         }
