@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerAnimation playerAnimation;
-    private Vector3 movement;
+    private Vector2 movement;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + speed * Time.fixedDeltaTime * movement);
+        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * movement);
     }
 
     private void Rotate()

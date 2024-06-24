@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 5409004288216128814}
   - component: {fileID: 5584535434258153515}
   - component: {fileID: 7273714219201764246}
-  - component: {fileID: 5346520657035826099}
+  - component: {fileID: 3007086922569560012}
   m_Layer: 0
   m_Name: Components
   m_TagString: Untagged
@@ -528,7 +528,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1025526383, guid: c6fe64a65bf5c9a4fa51bbdfa5328f1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -561,7 +561,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5346520657035826099
+--- !u!114 &3007086922569560012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,10 +570,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6362684310973275597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca996976b6c6c54daed09744a680bea, type: 3}
+  m_Script: {fileID: 11500000, guid: f0453d1d53a6be6449ad258a0f22f3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  movement: {fileID: 30382209075877268}
 --- !u!1 &7568379506581185173
 GameObject:
   m_ObjectHideFlags: 0
