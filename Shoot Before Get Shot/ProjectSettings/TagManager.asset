@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ammo
-  - First Aid
+  - Bullet Player
+  - Bullet Enemy
   - Wall
-  - Bullet
-  - Enemy Bullet
-  - Enemy
   layers:
   - Default
   - TransparentFX

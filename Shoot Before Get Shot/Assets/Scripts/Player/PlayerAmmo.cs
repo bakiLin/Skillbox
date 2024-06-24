@@ -34,4 +34,10 @@ public class PlayerAmmo : MonoBehaviour
 
         ammoText.text = $"{currentAmmo}/{totalAmmo}";
     }
+
+    public void PickAmmo(int ammo)
+    {
+        totalAmmo += ammo;
+        ammoText.text = $"{currentAmmo}/{totalAmmo}";
+    }
 }
