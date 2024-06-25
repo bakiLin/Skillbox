@@ -1,24 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class ShootPlayer : Shoot
 {
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private float shootDelay;
-    [SerializeField] private ShootProgress shootProgress;
+    [SerializeField] 
+    private ShootProgress shootProgress;
 
-    private PlayerAnimation playerAnimation;
+    private AnimationPlayer playerAnimation;
     private PlayerAmmo playerAmmo;
 
-    private void Awake()
+    protected override void Awake()
     {
-        playerAnimation = GetComponent<PlayerAnimation>();
+        playerAnimation = GetComponent<AnimationPlayer>();
         playerAmmo = GetComponent<PlayerAmmo>();
     }
 
-    private void Start() => StartCoroutine(ShootCoroutine());
-
-    private IEnumerator ShootCoroutine()
+    protected override IEnumerator ShootCoroutine()
     {
         while (true)
         {
@@ -29,10 +26,9 @@ public class PlayerShoot : MonoBehaviour
                     shootProgress.ProgressFill(shootDelay);
                     playerAnimation.Shoot();
 
-                    Vector3 bulletSpawnPosition = transform.position + transform.right * 0.3f;
-                    Instantiate(bullet, bulletSpawnPosition, transform.rotation);
-
+                    Instantiate(bullet, transform.position + transform.right * 0.3f, transform.rotation);
                     playerAmmo.UseAmmo();
+
                     yield return new WaitForSeconds(shootDelay);
                 }
                 else

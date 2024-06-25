@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class GunBoost : MonoBehaviour
 {
-    private PlayerShoot playerShoot;
+    private ShootPlayer playerShoot;
     private PlayerAmmo ammo;
 
     private void Awake()
     {
-        playerShoot = FindObjectOfType<PlayerShoot>();
+        playerShoot = FindObjectOfType<ShootPlayer>();
         ammo = FindObjectOfType<PlayerAmmo>();
     }
 

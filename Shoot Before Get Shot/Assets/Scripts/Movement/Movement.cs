@@ -6,9 +6,14 @@ public abstract class Movement : MonoBehaviour
     protected float speed;
 
     protected Rigidbody2D rb;
+    protected AnimationParent characterAnimation;
     protected Vector3 moveDirection;
 
-    protected virtual void Awake() => rb = GetComponent<Rigidbody2D>();
+    protected virtual void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        characterAnimation = GetComponent<AnimationParent>();
+    }
 
     protected virtual void FixedUpdate()
     {

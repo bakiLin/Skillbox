@@ -7,11 +7,11 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float maxHealth, deathDuration, currentHealth;
 
     private Transform healthFillTransform;
-    private EnemyAnimation enemyAnimation;
+    private AnimationEnemy enemyAnimation;
 
     private void Awake()
     {
-        enemyAnimation = GetComponent<EnemyAnimation>();
+        enemyAnimation = GetComponent<AnimationEnemy>();
         healthFillTransform = healthBar.GetComponentsInChildren<Transform>()[1];
     }
 

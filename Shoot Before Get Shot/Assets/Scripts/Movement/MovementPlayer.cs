@@ -2,14 +2,6 @@ using UnityEngine;
 
 public class MovementPlayer : Movement
 {
-    private new PlayerAnimation animation;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        animation = GetComponent<PlayerAnimation>();
-    }
-
     void Update()
     {
         moveDirection.x = Input.GetAxisRaw("Horizontal");
@@ -17,6 +9,6 @@ public class MovementPlayer : Movement
         moveDirection.Normalize();
 
         Rotate(moveDirection.x, 0f);
-        animation.Run(moveDirection);
+        characterAnimation.Run(moveDirection);
     }
 }

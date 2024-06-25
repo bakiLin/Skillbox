@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float deathDuration;
     [SerializeField] private Animator imageAnimator;
     [SerializeField] private GameObject player;
-    [SerializeField] private PlayerAnimation playerAnimation;
+    [SerializeField] private AnimationPlayer playerAnimation;
 
     private bool menuPressed;
 
