@@ -273,7 +273,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00043308735, y: -0.07210174}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.122820996, y: 0.14164594}
   m_Direction: 0
 --- !u!50 &5764833996249095773
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5956550116713396770, guid: ffff6b2ab96acac41b80d04ca6f6f11d, type: 3}
-  shootDelay: 0.9
+  shootDelay: 1
   shootProgress: {fileID: 417038712793641909}
 --- !u!114 &511100340529555919
 MonoBehaviour:

@@ -52,9 +52,9 @@ public class ChallengeTimer : MonoBehaviour
 
     private void StopAllEnemy()
     {
-        EnemyMovement[] enemies = FindObjectsOfType<EnemyMovement>();
+        MovementEnemy[] enemies = FindObjectsOfType<MovementEnemy>();
 
-        foreach (EnemyMovement enemy in enemies)
+        foreach (MovementEnemy enemy in enemies)
             enemy.enabled = false;
     }
 }

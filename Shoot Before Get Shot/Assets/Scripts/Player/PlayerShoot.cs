@@ -29,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
                     shootProgress.ProgressFill(shootDelay);
                     playerAnimation.Shoot();
 
-                    Vector3 bulletSpawnPosition = transform.position + new Vector3(transform.right.x * 0.3f, -0.14f, 0f);
+                    Vector3 bulletSpawnPosition = transform.position + transform.right * 0.3f;
                     Instantiate(bullet, bulletSpawnPosition, transform.rotation);
 
                     playerAmmo.UseAmmo();

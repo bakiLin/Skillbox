@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ControlPlayerAnimation : MonoBehaviour, IControl
 {
-    [SerializeField] private PlayerMovement movement;
+    [SerializeField] private MovementPlayer movement;
 
     public void StartMovement() => movement.enabled = true;
 

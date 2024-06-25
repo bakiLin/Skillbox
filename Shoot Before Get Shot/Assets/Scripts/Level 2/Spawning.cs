@@ -13,7 +13,7 @@ public class Spawning : MonoBehaviour
 
     private Random random = new Random();
 
-    private void Awake() => player = FindObjectOfType<PlayerMovement>().transform;
+    private void Awake() => player = FindObjectOfType<MovementPlayer>().transform;
 
     public void StartSpawn()
     {
