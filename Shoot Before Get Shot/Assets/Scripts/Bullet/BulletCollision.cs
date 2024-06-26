@@ -2,14 +2,23 @@ using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
 {
-    [SerializeField] private int damage;
+    private enum Target
+    {
+        Player,
+        Enemy
+    }
+
+    [SerializeField] 
+    private int damage;
+
+    [SerializeField]
+    private Target target;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IHealth health = collision.GetComponent<IHealth>();
+        Health health = collision.GetComponent<Health>();
 
-        if (collision.CompareTag("Player") && gameObject.CompareTag("Bullet Enemy") ||
-            collision.CompareTag("Enemy") && gameObject.CompareTag("Bullet Player"))
+        if (collision.CompareTag(target.ToString()))
         {
             health?.TakeDamage(damage);
             Destroy(gameObject);

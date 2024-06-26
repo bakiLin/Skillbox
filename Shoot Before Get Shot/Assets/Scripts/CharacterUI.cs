@@ -6,11 +6,11 @@ public class CharacterUI : MonoBehaviour
 
     private Vector3 offset;
 
-    private void Start() => offset = transform.localPosition;
+    private void Start() => offset = transform.position - anchor.position;
 
     void Update()
     {
-        if (anchor != null) 
+        if (anchor != null)
             transform.position = anchor.position + offset;
     }
 }

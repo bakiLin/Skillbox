@@ -15,6 +15,8 @@ public class MovementEnemy : Movement
         shootScript = GetComponent<ShootEnemy>();
     }
 
+    //—оздать enum с типом врага и настроить услови€ дл€ атаки
+
     private void Update()
     {
         if (player != null)
