@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class MovementEnemy : Movement
 {
+    private enum EnemyType
+    {
+        Range,
+        Melee
+    }
+
     [SerializeField]
     private Vector2 detectDistance, attackDistance, fleeDistance;
+
+    [SerializeField]
+    private EnemyType enemyType;
 
     private Transform player;
     private ShootEnemy shootScript;
@@ -14,8 +23,6 @@ public class MovementEnemy : Movement
         player = FindObjectOfType<MovementPlayer>().transform;
         shootScript = GetComponent<ShootEnemy>();
     }
-
-    //Создать enum с типом врага и настроить условия для атаки
 
     private void Update()
     {
@@ -31,9 +38,14 @@ public class MovementEnemy : Movement
 
                 Rotate(player.position.x, transform.position.x);
 
-                if (moveDirection.y == 0f) shootScript.Shoot();
+                if (enemyType == EnemyType.Range && moveDirection.y == 0f ||        //дальние враги атакуют, когда в одной Y координате с игроком
+                    enemyType == EnemyType.Melee && moveDirection == Vector3.zero)  //ближние враги акатуют только вблизи от игрока
+                {
+                    shootScript.Shoot();
+                }
             }
-            else moveDirection = Vector3.zero;
+            else 
+                moveDirection = Vector3.zero;
 
             characterAnimation.Run(moveDirection);
         }

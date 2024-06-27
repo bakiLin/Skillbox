@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator Death()
     {
-        playerAnimation.DeathAnimation();
+        //playerAnimation.DeathAnimation();
         yield return new WaitForSeconds(deathDuration);
         Destroy(player);
         imageAnimator.SetTrigger("FadeIn");

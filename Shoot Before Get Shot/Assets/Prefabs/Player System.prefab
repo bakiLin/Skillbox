@@ -194,7 +194,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6203184998201413852}
@@ -359,9 +359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ff470516b0d7548930c3a37c6f2b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
   healthMax: 100
-  healthCurrent: 50
+  healthCurrent: 100
+  slider: {fileID: 0}
 --- !u!114 &6664565571813594902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 2484008957920860364}
   - component: {fileID: 417038712793641909}
   m_Layer: 0
-  m_Name: Shooting Bar
+  m_Name: Shoot Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 5054073177687535568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -465,9 +465,9 @@ GameObject:
   - component: {fileID: 5409004288216128814}
   - component: {fileID: 5584535434258153515}
   - component: {fileID: 7273714219201764246}
-  - component: {fileID: 3007086922569560012}
+  - component: {fileID: 1679067335454594286}
   m_Layer: 0
-  m_Name: Components
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3007086922569560012
+--- !u!114 &1679067335454594286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6362684310973275597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0453d1d53a6be6449ad258a0f22f3c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4583e3191d9655a4f98e8b543815de4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 30382209075877268}
@@ -600,7 +600,7 @@ Transform:
   m_GameObject: {fileID: 7568379506581185173}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0499, y: 0.00009, z: 0}
+  m_LocalPosition: {x: -0.0499, y: 0, z: 0}
   m_LocalScale: {x: 0.71204704, y: 0.56774986, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
