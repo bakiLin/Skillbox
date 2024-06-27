@@ -4,6 +4,13 @@ using UnityEngine;
 public class ShootEnemy : Shoot
 {
     private bool shoot, delay;
+    private AnimationParent characterAnimation;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        characterAnimation = GetComponent<AnimationParent>();
+    }
 
     protected override IEnumerator ShootCoroutine()
     {

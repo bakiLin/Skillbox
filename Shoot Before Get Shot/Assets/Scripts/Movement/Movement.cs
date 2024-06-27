@@ -31,6 +31,9 @@ public abstract class Movement : MonoBehaviour
 
     protected virtual void StopMovement()
     {
+        moveDirection = Vector3.zero;
+        rb.velocity = Vector3.zero;
+
         Destroy(rb);
         Destroy(this);
     }

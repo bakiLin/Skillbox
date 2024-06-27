@@ -6,12 +6,13 @@ public class ShootPlayer : Shoot
     [SerializeField] 
     private ShootProgress shootProgress;
 
-    private AnimationPlayer playerAnimation;
+    private AnimationPlayer characterAnimation;
     private PlayerAmmo playerAmmo;
 
     protected override void Awake()
     {
-        playerAnimation = GetComponent<AnimationPlayer>();
+        base.Awake();
+        characterAnimation = GetComponent<AnimationPlayer>();
         playerAmmo = GetComponent<PlayerAmmo>();
     }
 
@@ -24,7 +25,7 @@ public class ShootPlayer : Shoot
                 if (playerAmmo.currentAmmo > 0)
                 {
                     shootProgress.ProgressFill(shootDelay);
-                    playerAnimation.Shoot();
+                    characterAnimation.Shoot();
 
                     Instantiate(bullet, transform.position + transform.right * 0.3f, transform.rotation);
                     playerAmmo.UseAmmo();
@@ -33,7 +34,7 @@ public class ShootPlayer : Shoot
                 }
                 else
                 {
-                    playerAnimation.Reload();
+                    characterAnimation.Reload();
                     yield return new WaitForSeconds(shootDelay);
                     playerAmmo.UseAmmo();
                 }

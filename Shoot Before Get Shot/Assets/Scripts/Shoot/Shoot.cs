@@ -9,11 +9,17 @@ public abstract class Shoot : MonoBehaviour
     [SerializeField] 
     protected float shootDelay;
 
-    protected AnimationParent characterAnimation;
+    protected Health health;
 
-    protected virtual void Awake() => characterAnimation = GetComponent<AnimationParent>();
+    protected virtual void Awake() => health = GetComponent<Health>();
 
     protected virtual void Start() => StartCoroutine(ShootCoroutine());
 
     protected abstract IEnumerator ShootCoroutine();
+
+    protected virtual void StopShooting() => StopAllCoroutines();
+
+    protected virtual void OnEnable() => health.onDeath += StopShooting;
+
+    protected virtual void OnDisable() => health.onDeath -= StopShooting;
 }

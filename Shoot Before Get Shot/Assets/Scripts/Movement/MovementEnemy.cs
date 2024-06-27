@@ -44,11 +44,11 @@ public class MovementEnemy : Movement
                     shootScript.Shoot();
                 }
             }
-            else 
-                moveDirection = Vector3.zero;
+            else moveDirection = Vector3.zero;
 
             characterAnimation.Run(moveDirection);
         }
+        else moveDirection = Vector3.zero;
     }
 
     private float GetDirection(float currentDistance, float attackDistance, float fleeDistance)
