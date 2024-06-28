@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class PlayerPickItem : MonoBehaviour
+public class PlayerDetector : MonoBehaviour
 {
-    [HideInInspector] public PlayerAmmo ammo;
-    [HideInInspector] public HealthPlayer health;
+    [HideInInspector] 
+    public PlayerAmmo ammo;
+
+    [HideInInspector] 
+    public HealthPlayer health;
 
     private void Awake()
     {
@@ -15,5 +18,8 @@ public class PlayerPickItem : MonoBehaviour
     {
         IItem item = collision.gameObject.GetComponent<IItem>();
         item?.PickItem(this);
+
+        Door door = collision.gameObject.GetComponent<Door>();
+        door?.Open();
     }
 }

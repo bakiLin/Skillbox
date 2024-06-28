@@ -20,7 +20,7 @@ public abstract class Movement : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         rb.MovePosition(transform.position + Time.fixedDeltaTime * speed * moveDirection);
-        rb.velocity = Vector3.zero;    //чтобы velocity не двигал врагов при столкновении с персонажем 
+        rb.velocity = Vector3.zero; //чтобы velocity не двигал врагов при столкновении с персонажем 
     }
 
     protected virtual void Rotate(float a, float b)

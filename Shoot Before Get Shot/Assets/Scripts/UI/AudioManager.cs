@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField, Range(0, 1)] private float clickSoundOffset;
+    [SerializeField, Range(0, 1)] 
+    private float clickSoundOffset;
 
     private AudioSource audioSource;
 

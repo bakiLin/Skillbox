@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8788974093843816246}
   - component: {fileID: 2541621939109539944}
   m_Layer: 5
-  m_Name: Blackout
+  m_Name: Blackout image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

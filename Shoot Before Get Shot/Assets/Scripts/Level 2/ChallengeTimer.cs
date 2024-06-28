@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChallengeTimer : MonoBehaviour
 {
-    [SerializeField] private LevelManager levelManager;
+    //[SerializeField] private LevelManager levelManager;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private int timeToSurvive;
 
@@ -46,7 +46,7 @@ public class ChallengeTimer : MonoBehaviour
         Destroy(spawn);
         Destroy(challengeZone.wall);
         StopAllEnemy();
-        levelManager.StartLoadLevel(0, 3);
+        //levelManager.StartLoadLevel(0, 3);
         Destroy(gameObject);
     }
 

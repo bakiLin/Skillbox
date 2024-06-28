@@ -4,8 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class FadeImage : MonoBehaviour
 {
-    [SerializeField] private ButtonManager buttonManager;
-    [SerializeField] private float fadeInDuration;
+    [SerializeField] 
+    private ButtonManager buttonManager;
+
+    [SerializeField]
+    private HealthPlayer playerHealth;
+
+    [SerializeField] 
+    private float fadeInDuration;
 
     private Animator animator;
 
@@ -20,15 +26,25 @@ public class FadeImage : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
+    private void Death() => StartCoroutine(DeathCoroutine());
+
+    private IEnumerator DeathCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(fadeInDuration);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     private void OnEnable()
     {
-        buttonManager.onGameStart += FadeIn;
-        buttonManager.onReturnToMenu += FadeIn;
+        buttonManager.onFadeIn += FadeIn;
+        playerHealth.onDeath += Death;
     }
 
     private void OnDisable()
     {
-        buttonManager.onGameStart -= FadeIn;
-        buttonManager.onReturnToMenu -= FadeIn;
+        buttonManager.onFadeIn -= FadeIn;
+        playerHealth.onDeath -= Death;
     }
 }

@@ -1,4 +1,4 @@
 public interface IItem
 {
-    void PickItem(PlayerPickItem player);
+    void PickItem(PlayerDetector player);
 }
