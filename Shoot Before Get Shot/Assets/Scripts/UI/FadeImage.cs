@@ -7,15 +7,17 @@ public class FadeImage : MonoBehaviour
     [SerializeField] 
     private ButtonManager buttonManager;
 
-    [SerializeField]
-    private HealthPlayer playerHealth;
-
     [SerializeField] 
     private float fadeInDuration;
 
     private Animator animator;
+    private HealthPlayer player;
 
-    private void Awake() => animator = GetComponent<Animator>();
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        player = GameObject.Find("Player")?.GetComponent<HealthPlayer>();
+    }
 
     private void FadeIn(int index) => StartCoroutine(FadeInCoroutine(index));
 
@@ -39,12 +41,12 @@ public class FadeImage : MonoBehaviour
     private void OnEnable()
     {
         buttonManager.onFadeIn += FadeIn;
-        playerHealth.onDeath += Death;
+        if (player != null) player.onDeath += Death;
     }
 
     private void OnDisable()
     {
         buttonManager.onFadeIn -= FadeIn;
-        playerHealth.onDeath -= Death;
+        if (player != null) player.onDeath -= Death;
     }
 }

@@ -23,5 +23,8 @@ public class BulletCollision : MonoBehaviour
             health?.TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (collision.CompareTag("Obstacle"))
+            Destroy(gameObject);
     }
 }

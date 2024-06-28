@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Item
     uniqueID: 2300268795
+    locked: 0
+  - name: Toxin
+    uniqueID: 2931648745
     locked: 0
   - name: Bullet
     uniqueID: 3412216853
