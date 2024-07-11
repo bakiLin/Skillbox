@@ -345,6 +345,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ff470516b0d7548930c3a37c6f2b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &646673590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2111332834532832452, guid: 197d0ae1f3acec94a8f4926327fd82cf, type: 3}
+  m_PrefabInstance: {fileID: 616657689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5dbf1dcbcd389e4b8f43775ab2d952b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1036922258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,7 +1790,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 560838225523915328, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
@@ -1799,6 +1811,14 @@ PrefabInstance:
       propertyPath: sliderMusic
       value: 
       objectReference: {fileID: 1187914237}
+    - target: {fileID: 2881976641118173708, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
+      propertyPath: shoot
+      value: 
+      objectReference: {fileID: 646673590}
+    - target: {fileID: 2881976641118173708, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
+      propertyPath: pauseWindow
+      value: 
+      objectReference: {fileID: 2080260984}
     - target: {fileID: 3393759229354995907, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
       propertyPath: m_Name
       value: Button Manager
@@ -2000,7 +2020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 602229528781110876, guid: 143c9bf15e30ddf4b99b511938de48b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1251638812933041705, guid: 143c9bf15e30ddf4b99b511938de48b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5096,6 +5116,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &2080260984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8408735663506890132, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
+  m_PrefabInstance: {fileID: 1403402403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2145078619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2659915818668356760, guid: 143c9bf15e30ddf4b99b511938de48b9, type: 3}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9062553306351432738}
   - component: {fileID: 1157519175124209959}
+  - component: {fileID: 2881976641118173708}
   m_Layer: 0
   m_Name: Button Manager
   m_TagString: Untagged
@@ -45,3 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 5b84e81e58473d243bc30d07d5906a42, type: 2}
+  sliderMusic: {fileID: 0}
+  sliderSFX: {fileID: 0}
+--- !u!114 &2881976641118173708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393759229354995907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e54120f3b9cb3842bf2258e67ec63bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseWindow: {fileID: 0}
+  shoot: {fileID: 0}
