@@ -11,6 +11,10 @@ public class HealthPlayer : Health
     public void PickAid(int health)
     {
         healthCurrent += health;
+
+        if (healthCurrent > 100f)
+            healthCurrent = 100f;
+
         SetHealth();
     }
 

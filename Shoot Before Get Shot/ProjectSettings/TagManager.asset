@@ -43,14 +43,8 @@ TagManager:
   - name: Floor
     uniqueID: 862225329
     locked: 0
-  - name: Item
-    uniqueID: 2300268795
-    locked: 0
   - name: Toxin
     uniqueID: 2931648745
-    locked: 0
-  - name: Bullet
-    uniqueID: 3412216853
     locked: 0
   - name: Default
     uniqueID: 0

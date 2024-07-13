@@ -21,11 +21,7 @@ public class Toxin : MonoBehaviour
 
     private void Update()
     {
-        print(player);
-
         if (player != null)
-        {
             player.TakeDamage(Time.deltaTime * damageMultiplier);
-        }
     }
 }
