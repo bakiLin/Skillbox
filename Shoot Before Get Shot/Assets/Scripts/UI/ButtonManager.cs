@@ -11,6 +11,9 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] 
     private Slider sliderMusic, sliderSFX;
 
+    [SerializeField]
+    private int minSoundValue;
+
     public Action<int> onFadeIn;
 
     private void Start()
@@ -23,6 +26,7 @@ public class ButtonManager : MonoBehaviour
     {
         mixer.GetFloat(parameter, out float volume);
         slider.value = volume;
+        ChangeVolume(parameter, volume);
     }
 
     public void FadeIn(int index) => onFadeIn?.Invoke(index);
@@ -35,7 +39,7 @@ public class ButtonManager : MonoBehaviour
 
     private void ChangeVolume(string parameter, float volume)
     {
-        if (volume == -30) mixer.SetFloat(parameter, -80);
+        if (volume == minSoundValue) mixer.SetFloat(parameter, -80);
         else mixer.SetFloat(parameter, volume);
     }
 }

@@ -12,7 +12,7 @@ public abstract class Health : MonoBehaviour
 
     protected abstract void SetHealth();
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
         if (healthCurrent > 0f)
         {

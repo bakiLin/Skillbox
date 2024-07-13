@@ -1327,6 +1327,14 @@ PrefabInstance:
       propertyPath: sliderMusic
       value: 
       objectReference: {fileID: 945128271}
+    - target: {fileID: 1157519175124209959, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
+      propertyPath: maxSoundValue
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157519175124209959, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
+      propertyPath: minSoundValue
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 3393759229354995907, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
       propertyPath: m_Name
       value: Button Manager
@@ -1371,7 +1379,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2881976641118173708, guid: 91f8fb807f979aa48aa87fe38d2c4328, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

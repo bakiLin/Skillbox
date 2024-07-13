@@ -6,7 +6,16 @@ public class PauseManager : MonoBehaviour
     private GameObject pauseWindow;
 
     [SerializeField]
-    private ShootPlayer shoot;
+    private GameObject player;
+
+    private Shoot shoot;
+    private Movement movement;
+
+    private void Awake()
+    {
+        shoot = player.GetComponent<Shoot>();
+        movement = player.GetComponent<Movement>();
+    }
 
     private void Update()
     {
@@ -16,8 +25,9 @@ public class PauseManager : MonoBehaviour
 
     private void Pause()
     {
-        shoot.StopShooting();
         Time.timeScale = 0f;
+        shoot.StopShooting();
+        movement.enabled = false;
         pauseWindow.SetActive(true);
     }
 
@@ -25,5 +35,6 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         shoot.StartShooting();
+        movement.enabled = true;
     }
 }
