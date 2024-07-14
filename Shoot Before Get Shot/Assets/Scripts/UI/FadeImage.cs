@@ -7,24 +7,23 @@ public class FadeImage : MonoBehaviour
     [SerializeField] 
     private ButtonManager buttonManager;
 
-    [SerializeField] 
-    private float fadeInDuration;
-
     private Animator animator;
     private HealthPlayer player;
+    private Challenge challenge;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player")?.GetComponent<HealthPlayer>();
+        challenge = FindObjectOfType<Challenge>();
     }
 
-    private void FadeIn(int index) => StartCoroutine(FadeInCoroutine(index));
+    private void FadeIn(int index, int time) => StartCoroutine(FadeInCoroutine(index, time));
 
-    private IEnumerator FadeInCoroutine(int index)
+    private IEnumerator FadeInCoroutine(int index, int time)
     {
         animator.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(fadeInDuration);
+        yield return new WaitForSeconds(time);
         SceneManager.LoadScene(index);
     }
 
@@ -34,7 +33,7 @@ public class FadeImage : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         animator.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(fadeInDuration);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -42,11 +41,13 @@ public class FadeImage : MonoBehaviour
     {
         buttonManager.onFadeIn += FadeIn;
         if (player != null) player.onDeath += Death;
+        if (challenge != null) challenge.onWin += FadeIn;
     }
 
     private void OnDisable()
     {
         buttonManager.onFadeIn -= FadeIn;
         if (player != null) player.onDeath -= Death;
+        if (challenge != null) challenge.onWin += FadeIn;
     }
 }

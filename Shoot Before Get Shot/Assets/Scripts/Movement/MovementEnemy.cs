@@ -20,7 +20,8 @@ public class MovementEnemy : Movement
     protected override void Awake()
     {
         base.Awake();
-        player = FindObjectOfType<MovementPlayer>().transform;
+        MovementPlayer temp = FindObjectOfType<MovementPlayer>();
+        player = temp?.transform;
         shootScript = GetComponent<ShootEnemy>();
     }
 

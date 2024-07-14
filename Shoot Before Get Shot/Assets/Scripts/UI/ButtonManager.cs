@@ -14,7 +14,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private int minSoundValue;
 
-    public Action<int> onFadeIn;
+    public Action<int, int> onFadeIn;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class ButtonManager : MonoBehaviour
         ChangeVolume(parameter, volume);
     }
 
-    public void FadeIn(int index) => onFadeIn?.Invoke(index);
+    public void FadeIn(int index) => onFadeIn?.Invoke(index, 2);
 
     public void QuitGame() => Application.Quit();
 
