@@ -85,7 +85,7 @@ public class Challenge : MonoBehaviour
             Vector2 spawnPosition = new Vector2(positionX, positionY);
 
             int index = rand.Next(0, 100);
-            index = index % 2 == 0 ? 1 : 0;
+            index = index > 70 ? 1 : 0;
             Instantiate(arr[index], spawnPosition, Quaternion.identity);
         }
     }

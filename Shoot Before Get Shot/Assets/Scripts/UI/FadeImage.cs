@@ -10,12 +10,14 @@ public class FadeImage : MonoBehaviour
     private Animator animator;
     private HealthPlayer player;
     private Challenge challenge;
+    private Door door;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player")?.GetComponent<HealthPlayer>();
         challenge = FindObjectOfType<Challenge>();
+        door = GameObject.Find("Door Finish")?.GetComponent<Door>();
     }
 
     private void FadeIn(int index, int time) => StartCoroutine(FadeInCoroutine(index, time));
@@ -40,6 +42,7 @@ public class FadeImage : MonoBehaviour
     private void OnEnable()
     {
         buttonManager.onFadeIn += FadeIn;
+        if (door != null) door.onFinish += FadeIn;
         if (player != null) player.onDeath += Death;
         if (challenge != null) challenge.onWin += FadeIn;
     }
@@ -47,6 +50,7 @@ public class FadeImage : MonoBehaviour
     private void OnDisable()
     {
         buttonManager.onFadeIn -= FadeIn;
+        if (door != null) door.onFinish -= FadeIn;
         if (player != null) player.onDeath -= Death;
         if (challenge != null) challenge.onWin += FadeIn;
     }

@@ -1031,6 +1031,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6224246759492758050, guid: b0009fe71f2c238468cf48524ad43600, type: 3}
+      propertyPath: detectDistance.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7244803480626941279, guid: b0009fe71f2c238468cf48524ad43600, type: 3}
       propertyPath: m_Name
       value: Enemy Range 1
@@ -3716,7 +3720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 602229528781110876, guid: 143c9bf15e30ddf4b99b511938de48b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1251638812933041705, guid: 143c9bf15e30ddf4b99b511938de48b9, type: 3}
       propertyPath: m_LocalPosition.x
