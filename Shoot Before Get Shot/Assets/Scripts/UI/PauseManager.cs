@@ -1,21 +1,16 @@
 using UnityEngine;
+using Zenject;
 
 public class PauseManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pauseWindow;
+    private GameObject pauseWindow, player;
 
-    [SerializeField]
-    private GameObject player;
+    [Inject]
+    private ShootPlayer shootPlayer;
 
-    private Shoot shoot;
-    private Movement movement;
-
-    private void Awake()
-    {
-        shoot = player.GetComponent<Shoot>();
-        movement = player.GetComponent<Movement>();
-    }
+    [Inject]
+    private MovementPlayer movementPlayer;
 
     private void Update()
     {
@@ -26,15 +21,15 @@ public class PauseManager : MonoBehaviour
     private void Pause()
     {
         Time.timeScale = 0f;
-        shoot.StopShooting();
-        movement.enabled = false;
+        shootPlayer.StopShooting();
+        movementPlayer.enabled = false;
         pauseWindow.SetActive(true);
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
-        shoot.StartShooting();
-        movement.enabled = true;
+        shootPlayer.StartShooting();
+        movementPlayer.enabled = true;
     }
 }

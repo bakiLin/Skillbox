@@ -2,27 +2,13 @@ using UnityEngine;
 
 public class ControlAnimation : MonoBehaviour
 {
-    [SerializeField]
     private Movement movement;
 
-    private Transform character;
+    private void Awake() => movement = transform.parent.GetComponent<Movement>();
 
-    private void Awake() => character = movement.transform.parent;
+    private void StartMovement() => movement.enabled = true;
 
-    private void StartMovement()
-    {
-        if (movement != null) 
-            movement.enabled = true;
-    }
+    private void StopMovement() => movement.enabled = false;
 
-    private void StopMovement()
-    {
-        if (movement != null)
-            movement.enabled = false;
-    }
-
-    private void Death() 
-    {
-        Destroy(character.gameObject);
-    }
+    private void Death() => Destroy(movement.gameObject);
 }

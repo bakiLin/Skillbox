@@ -1,15 +1,15 @@
 using UnityEngine;
 using Zenject;
 
-public class Installer : MonoInstaller
+public class ButtonInstaller : MonoInstaller
 {
     [SerializeField]
-    private HealthPlayer healthPlayer;
+    private Shading fadeImage;
 
     public override void InstallBindings()
     {
-        Container.Bind<HealthPlayer>()
-            .FromInstance(healthPlayer)
+        Container.Bind<Shading>()
+            .FromInstance(fadeImage)
             .AsSingle()
             .NonLazy();
     }

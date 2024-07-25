@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using Zenject;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -14,7 +15,10 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private int minSoundValue;
 
-    public Action<int, int> onFadeIn;
+    [Inject] 
+    private Shading fadeImage;
+
+    //public Action<int, int> onFadeIn;
 
     private void Start()
     {
@@ -29,7 +33,7 @@ public class ButtonManager : MonoBehaviour
         ChangeVolume(parameter, volume);
     }
 
-    public void FadeIn(int index) => onFadeIn?.Invoke(index, 2);
+    public void FadeIn(int sceneIndex) => /*onFadeIn?.Invoke(index, 2);*/ fadeImage.FadeIn(sceneIndex, 2f);
 
     public void QuitGame() => Application.Quit();
 

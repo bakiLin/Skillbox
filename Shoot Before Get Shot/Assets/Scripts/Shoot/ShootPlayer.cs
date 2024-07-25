@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class ShootPlayer : Shoot
 {
-    [SerializeField] 
+    [Inject]
     private ShootProgress shootProgress;
 
     private AnimationPlayer characterAnimation;

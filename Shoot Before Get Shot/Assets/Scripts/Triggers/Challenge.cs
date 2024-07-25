@@ -1,6 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
+using Zenject;
 using Random = System.Random;
 
 public class Challenge : MonoBehaviour
@@ -27,11 +27,14 @@ public class Challenge : MonoBehaviour
     [SerializeField]
     private HealthPlayer player;
 
+    [Inject]
+    private Shading fadeImage;
+
     private Random rand;
     private bool challengeOn;
     private float time = 30f, itemTime = 1f, enemyTime = 2f;
 
-    public Action<int, int> onWin;
+    //public Action<int, int> onWin;
 
     private void Start() => rand = new Random();
 
@@ -60,7 +63,8 @@ public class Challenge : MonoBehaviour
             }
             else
             {
-                onWin?.Invoke(0, 3);
+                fadeImage.FadeIn(0, 3f);
+                //onWin?.Invoke(0, 3);
                 timer.text = "time over";
                 wall.SetActive(false);
                 this.enabled = false;

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -14,10 +13,13 @@ public class Door : MonoBehaviour
     [SerializeField]
     private DoorType doorType;
 
-    public Action<int, int> onFinish;
+    [Inject]
+    private Shading fadeImage;
+
+    [Inject] 
+    private HealthPlayer healthPlayer;  //реализовать перенос здоровья на новый уровень
 
     private Animator animator; 
-    [Inject] private HealthPlayer healthPlayer;
 
     private void Awake() => animator = GetComponent<Animator>();
 
@@ -25,17 +27,10 @@ public class Door : MonoBehaviour
     {
         animator.SetTrigger("open");
 
-        if (doorType == DoorType.Regular)
-        {
-            print(healthPlayer.IsInjured());
-        }
-
         if (doorType == DoorType.Finish)
         {
-            int index = SceneManager.GetActiveScene().buildIndex + 1;
-            onFinish?.Invoke(index, 2);
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            fadeImage.FadeIn(sceneIndex, 2f);
         }    
     }
-
-    private void DeleteSelf() => Destroy(gameObject);
 }
