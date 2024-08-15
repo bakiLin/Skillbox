@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
-    [SerializeField] private Transform anchor;
+    [SerializeField] 
+    private Transform anchor;
 
     private Vector3 offset;
 

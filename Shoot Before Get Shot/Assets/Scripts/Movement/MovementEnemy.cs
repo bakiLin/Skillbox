@@ -8,6 +8,8 @@ public class MovementEnemy : Movement
         Melee
     }
 
+    //stop from pushing player
+
     [SerializeField]
     private Vector2 detectDistance, attackDistance, fleeDistance;
 

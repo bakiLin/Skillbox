@@ -12,7 +12,7 @@ public class ShadingLevel : Shading
 
     private IEnumerator DeathCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         animator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

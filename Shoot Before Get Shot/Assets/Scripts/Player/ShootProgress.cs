@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class ShootProgress : MonoBehaviour
 {
-    [SerializeField] private GameObject[] shootBarComponents;
+    [SerializeField] 
+    private GameObject[] shootBarComponents;
 
     private float fillMaxScaleX;
 
@@ -20,6 +21,7 @@ public class ShootProgress : MonoBehaviour
         SwitchBarComponents(true);
 
         float time = 0f;
+
         while (time < shootDelay)
         {
             time += Time.deltaTime;

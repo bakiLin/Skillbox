@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 6991438331495713642}
   - component: {fileID: 511100340529555919}
   - component: {fileID: 4578587594526737217}
-  - component: {fileID: 6664565571813594902}
+  - component: {fileID: 6512358057174908631}
   - component: {fileID: 8429907625028118368}
   m_Layer: 0
   m_Name: Player
@@ -330,7 +330,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5956550116713396770, guid: ffff6b2ab96acac41b80d04ca6f6f11d, type: 3}
   shootDelay: 1
-  shootProgress: {fileID: 417038712793641909}
 --- !u!114 &511100340529555919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +361,7 @@ MonoBehaviour:
   healthMax: 100
   healthCurrent: 100
   slider: {fileID: 0}
---- !u!114 &6664565571813594902
+--- !u!114 &6512358057174908631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,7 +370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4924723364493153167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b74780bc517425240b2197d515700f59, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f4b189e172ef14458a9c7bd6037ea72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7273714219201764246}
@@ -573,7 +572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4583e3191d9655a4f98e8b543815de4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 30382209075877268}
 --- !u!1 &7568379506581185173
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class PlayerAmmo : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI ammoText;
-    [SerializeField] private int magazine, totalAmmo;
+    [SerializeField] 
+    private TextMeshProUGUI ammoText;
+
+    [SerializeField] 
+    private int magazine, totalAmmo;
 
     [HideInInspector] public int currentAmmo;
 

@@ -19,7 +19,7 @@ public abstract class Health : MonoBehaviour
             healthCurrent -= damage;
             SetHealth();
         }
-        
+
         if (healthCurrent <= 0f)
         {
             onDeath?.Invoke();

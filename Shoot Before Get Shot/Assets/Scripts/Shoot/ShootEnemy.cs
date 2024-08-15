@@ -1,35 +1,19 @@
-using System.Collections;
 using UnityEngine;
 
 public class ShootEnemy : Shoot
 {
-    private bool shoot, delay;
-    private AnimationParent characterAnimation;
+    private bool shoot;
 
-    protected override void Awake()
+    protected override void ShootAction()
     {
-        base.Awake();
-        characterAnimation = GetComponent<AnimationParent>();
-    }
-
-    protected override IEnumerator ShootCoroutine()
-    {
-        while (true)
+        if (shoot)
         {
-            if (!delay & shoot)
-            {
-                delay = true;
+            cooldown = shootDelay;
+            shoot = false;
 
-                characterAnimation.Shoot();
-                Vector3 spawnPosition = new Vector3(transform.right.x * 0.2f, -0.07f);
-                Instantiate(bullet, transform.position + spawnPosition, transform.rotation);
-                yield return new WaitForSeconds(shootDelay);
-
-                delay = false;
-                shoot = false;
-            }
-
-            yield return null;
+            anim.Shoot();
+            Vector3 spawnPosition = new Vector3(transform.right.x * 0.2f, -0.07f);
+            Instantiate(bullet, transform.position + spawnPosition, transform.rotation);
         }
     }
 

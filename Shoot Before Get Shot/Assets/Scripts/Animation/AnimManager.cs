@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AnimationParent : MonoBehaviour
+public class AnimManager : MonoBehaviour
 {
     [SerializeField] 
     protected Animator animator;
@@ -12,6 +12,8 @@ public class AnimationParent : MonoBehaviour
     public virtual void Run(Vector3 moveDirection) => animator.SetFloat("speed", moveDirection.magnitude);
 
     public virtual void Shoot() => animator.SetTrigger("shoot");
+
+    public void Reload() => animator.SetTrigger("reload");
 
     protected virtual void Death()
     {

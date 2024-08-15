@@ -4,7 +4,7 @@ using Zenject;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pauseWindow, player;
+    private GameObject pauseWindow;
 
     [Inject]
     private ShootPlayer shootPlayer;
@@ -21,7 +21,7 @@ public class PauseManager : MonoBehaviour
     private void Pause()
     {
         Time.timeScale = 0f;
-        shootPlayer.StopShooting();
+        shootPlayer.enabled = false;
         movementPlayer.enabled = false;
         pauseWindow.SetActive(true);
     }
@@ -29,7 +29,7 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-        shootPlayer.StartShooting();
+        shootPlayer.enabled = true;
         movementPlayer.enabled = true;
     }
 }

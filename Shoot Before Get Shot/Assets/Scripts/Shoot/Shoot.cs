@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public abstract class Shoot : MonoBehaviour
@@ -9,19 +8,33 @@ public abstract class Shoot : MonoBehaviour
     [SerializeField] 
     protected float shootDelay;
 
+    protected AnimManager anim;
     protected Health health;
+    protected float cooldown;
 
-    protected virtual void Awake() => health = GetComponent<Health>();
+    protected virtual void Awake()
+    {
+        anim = GetComponent<AnimManager>();
+        health = GetComponent<Health>();
+    }
 
-    protected virtual void Start() => StartShooting();
+    protected virtual void Update()
+    {
+        if (cooldown > 0)
+            cooldown -= Time.deltaTime;
+        else
+            ShootAction();
+    }
 
-    protected abstract IEnumerator ShootCoroutine();
+    protected abstract void ShootAction();
 
-    public virtual void StartShooting() => StartCoroutine(ShootCoroutine());
+    protected virtual void OnEnable()
+    {
+        health.onDeath += () => Destroy(this); 
+    }
 
-    public virtual void StopShooting() => StopAllCoroutines();
-
-    protected virtual void OnEnable() => health.onDeath += StopShooting;
-
-    protected virtual void OnDisable() => health.onDeath -= StopShooting;
+    private void OnDisable()
+    {
+        health.onDeath -= () => Destroy(this);
+    }
 }

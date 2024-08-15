@@ -33,4 +33,6 @@ public class Door : MonoBehaviour
             fadeImage.FadeIn(sceneIndex, 2f);
         }    
     }
+
+    public void DeleteSelf() => Destroy(gameObject);
 }
