@@ -42,16 +42,16 @@ public class MovementEnemy : Movement
                 Rotate(player.position.x, transform.position.x);
 
                 if (enemyType == EnemyType.Range && moveDirection.y == 0f ||        //дальние враги атакуют, когда в одной Y координате с игроком
-                    enemyType == EnemyType.Melee && moveDirection == Vector3.zero)  //ближние враги акатуют только вблизи от игрока
+                    enemyType == EnemyType.Melee && moveDirection == Vector2.zero)  //ближние враги акатуют только вблизи от игрока
                 {
                     shootScript.Shoot();
                 }
             }
-            else moveDirection = Vector3.zero;
+            else moveDirection = Vector2.zero;
 
-            characterAnimation.Run(moveDirection);
+            animManager.Run(moveDirection);
         }
-        else moveDirection = Vector3.zero;
+        else moveDirection = Vector2.zero;
     }
 
     private float GetDirection(float currentDistance, float attackDistance, float fleeDistance)
