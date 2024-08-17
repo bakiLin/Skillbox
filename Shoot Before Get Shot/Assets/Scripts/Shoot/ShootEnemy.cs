@@ -17,5 +17,5 @@ public class ShootEnemy : Shoot
         }
     }
 
-    public void Shoot() => shoot = true;
+    public void Shoot(bool state) => shoot = state;
 }

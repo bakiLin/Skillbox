@@ -1,9 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class Shading : MonoBehaviour
 {
+    [Inject]
+    private ResourceManager resourceManager;
+
     protected Animator animator;
 
     protected virtual void Awake() => animator = GetComponent<Animator>();
@@ -14,6 +18,9 @@ public class Shading : MonoBehaviour
     {
         animator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(time);
+
+        resourceManager.Save();
+
         SceneManager.LoadScene(sceneIndex);
     }
 }

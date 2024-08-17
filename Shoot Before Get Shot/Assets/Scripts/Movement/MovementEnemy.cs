@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class MovementEnemy : Movement
 {
@@ -8,7 +9,8 @@ public class MovementEnemy : Movement
         Melee
     }
 
-    //stop from pushing player
+    [Inject]
+    private MovementPlayer movementPlayer;
 
     [SerializeField]
     private Vector2 detectDistance, attackDistance, fleeDistance;
@@ -22,8 +24,8 @@ public class MovementEnemy : Movement
     protected override void Awake()
     {
         base.Awake();
-        MovementPlayer temp = FindObjectOfType<MovementPlayer>();
-        player = temp?.transform;
+
+        player = movementPlayer?.transform;
         shootScript = GetComponent<ShootEnemy>();
     }
 
@@ -42,16 +44,20 @@ public class MovementEnemy : Movement
                 Rotate(player.position.x, transform.position.x);
 
                 if (enemyType == EnemyType.Range && moveDirection.y == 0f ||        //дальние враги атакуют, когда в одной Y координате с игроком
-                    enemyType == EnemyType.Melee && moveDirection == Vector2.zero)  //ближние враги акатуют только вблизи от игрока
+                    enemyType == EnemyType.Melee && moveDirection == Vector3.zero)  //ближние враги акатуют только вблизи от игрока
                 {
-                    shootScript.Shoot();
+                    shootScript.Shoot(true);
                 }
             }
-            else moveDirection = Vector2.zero;
+            else moveDirection = Vector3.zero;
 
             animManager.Run(moveDirection);
         }
-        else moveDirection = Vector2.zero;
+        else
+        {
+            moveDirection = Vector3.zero;
+            shootScript.Shoot(false);
+        }
     }
 
     private float GetDirection(float currentDistance, float attackDistance, float fleeDistance)

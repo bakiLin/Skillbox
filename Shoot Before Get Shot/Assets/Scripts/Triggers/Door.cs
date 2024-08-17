@@ -16,9 +16,6 @@ public class Door : MonoBehaviour
     [Inject]
     private Shading fadeImage;
 
-    [Inject] 
-    private HealthPlayer healthPlayer;  //реализовать перенос здоровья на новый уровень
-
     private Animator animator; 
 
     private void Awake() => animator = GetComponent<Animator>();
@@ -28,11 +25,8 @@ public class Door : MonoBehaviour
         animator.SetTrigger("open");
 
         if (doorType == DoorType.Finish)
-        {
-            int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            fadeImage.FadeIn(sceneIndex, 2f);
-        }    
+            fadeImage.FadeIn(SceneManager.GetActiveScene().buildIndex + 1, 2f);
     }
 
-    public void DeleteSelf() => Destroy(gameObject);
+    public void DeleteSelf() => Destroy(gameObject);  // Used in "Open" animation
 }

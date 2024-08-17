@@ -9,11 +9,16 @@ public class PlayerAmmo : MonoBehaviour
     [SerializeField] 
     private int magazine, totalAmmo;
 
-    [HideInInspector] public int currentAmmo;
+    [HideInInspector] 
+    public int currentAmmo;
 
     private void Start()
     {
-        currentAmmo = magazine;
+        if (PlayerPrefs.HasKey("mag")) currentAmmo = PlayerPrefs.GetInt("mag");
+        else currentAmmo = magazine;
+
+        if (PlayerPrefs.HasKey("total")) totalAmmo = PlayerPrefs.GetInt("total");
+
         ammoText.text = $"{currentAmmo}/{totalAmmo}";
     }
 
@@ -43,4 +48,6 @@ public class PlayerAmmo : MonoBehaviour
         totalAmmo += ammo;
         ammoText.text = $"{currentAmmo}/{totalAmmo}";
     }
+
+    public int[] GetAmmo() => new int[] { currentAmmo, totalAmmo };
 }

@@ -15,14 +15,15 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField]
     private ShootProgress shootProgress;
 
+    [SerializeField]
+    private PlayerAmmo playerAmmo;
+
     public override void InstallBindings()
     {
         Container.Bind<HealthPlayer>().FromInstance(healthPlayer).AsSingle().NonLazy();
-
         Container.Bind<ShootPlayer>().FromInstance(shootPlayer).AsSingle().NonLazy();
-
         Container.Bind<MovementPlayer>().FromInstance(movementPlayer).AsSingle().NonLazy();
-
         Container.Bind<ShootProgress>().FromInstance(shootProgress).AsSingle().NonLazy();
+        Container.Bind<PlayerAmmo>().FromInstance(playerAmmo).AsSingle().NonLazy();
     }
 }
