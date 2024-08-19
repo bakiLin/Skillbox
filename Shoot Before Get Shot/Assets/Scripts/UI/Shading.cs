@@ -18,9 +18,6 @@ public class Shading : MonoBehaviour
     {
         animator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(time);
-
-        resourceManager.Save();
-
         SceneManager.LoadScene(sceneIndex);
     }
 }

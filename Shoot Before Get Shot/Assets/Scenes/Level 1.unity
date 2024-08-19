@@ -400,29 +400,12 @@ Transform:
   - {fileID: 1622661010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &391865900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8756384580789227945, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
-  m_PrefabInstance: {fileID: 926419907}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &391865902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391865900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edbc9efdbad0d5449b77fc5cafa577b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &391865907 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2187914841018152406, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
   m_PrefabInstance: {fileID: 926419907}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391865900}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbd0221da482f6046a9a1af1cdeaf69f, type: 3}
@@ -3279,6 +3262,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 1026236245}
+    - target: {fileID: 627351199865841461, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 2187914841018152406, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
       propertyPath: buttonManager
       value: 
@@ -3422,10 +3409,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8756384580789227945, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 391865902}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430d5f50f68478643af484cdb9aa9e14, type: 3}
 --- !u!114 &926419908 stripped
 MonoBehaviour:

@@ -33,16 +33,5 @@ public abstract class Movement : MonoBehaviour
     {
         rb.Sleep();
         Destroy(rb);
-        Destroy(this);
-    }
-
-    private void OnEnable()
-    {
-        health.onDeath += Death;
-    }
-
-    private void OnDisable()
-    {
-        health.onDeath -= Death;
     }
 }

@@ -16,6 +16,9 @@ public class Door : MonoBehaviour
     [Inject]
     private Shading fadeImage;
 
+    [Inject]
+    private ResourceManager resourceManager;
+
     private Animator animator; 
 
     private void Awake() => animator = GetComponent<Animator>();
@@ -25,7 +28,10 @@ public class Door : MonoBehaviour
         animator.SetTrigger("open");
 
         if (doorType == DoorType.Finish)
+        {
             fadeImage.FadeIn(SceneManager.GetActiveScene().buildIndex + 1, 2f);
+            resourceManager.Save();
+        }
     }
 
     public void DeleteSelf() => Destroy(gameObject);  // Used in "Open" animation

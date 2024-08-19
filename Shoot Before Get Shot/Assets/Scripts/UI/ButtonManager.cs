@@ -18,8 +18,6 @@ public class ButtonManager : MonoBehaviour
     [Inject] 
     private Shading fadeImage;
 
-    //public Action<int, int> onFadeIn;
-
     private void Start()
     {
         SetSliderValue(sliderMusic, "music volume");
@@ -33,7 +31,7 @@ public class ButtonManager : MonoBehaviour
         ChangeVolume(parameter, volume);
     }
 
-    public void FadeIn(int sceneIndex) => /*onFadeIn?.Invoke(index, 2);*/ fadeImage.FadeIn(sceneIndex, 2f);
+    public void FadeIn(int sceneIndex) => fadeImage.FadeIn(sceneIndex, 2f);
 
     public void QuitGame() => Application.Quit();
 

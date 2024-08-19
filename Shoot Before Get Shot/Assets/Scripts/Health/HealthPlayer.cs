@@ -6,6 +6,14 @@ public class HealthPlayer : Health
     [SerializeField] 
     private Slider slider;
 
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("hp")) 
+            healthCurrent = PlayerPrefs.GetFloat("hp");
+
+        SetHealth();
+    }
+
     protected override void SetHealth() => slider.value = healthCurrent / healthMax;
 
     public void PickAid(int health)
@@ -19,4 +27,6 @@ public class HealthPlayer : Health
     }
 
     public bool IsInjured() => healthCurrent < healthMax;
+
+    public float GetHealth() => healthCurrent;
 }
